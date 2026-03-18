@@ -1,15 +1,19 @@
 body{
     display: flex;
     text-align: center;
+    min-height: 100vh;
+    flex-direction: column;
+    justify-content: center;
     background-image: linear-gradient(90deg,green,rgb(18, 192, 18));
 }
 
-.container-canvas{
-    
+.counter{
+  color: white;
+  font-size: 40px;
 }
 
 #cvs{
   margin: 0 auto;
-  background-color: white;
+  background-color: rgb(192, 255, 169);
   border: 1px solid black;
 }
