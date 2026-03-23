@@ -2,8 +2,22 @@ document.addEventListener("DOMContentLoaded", () =>{
     const canvas = document.getElementById("cvs");
     const ctx = canvas.getContext('2d');
 
+    const MenuSnake = document.getElementById("MenuSnakeJS");
+    const buttonReturn = document.getElementById("returnJS");
     const counter = document.getElementById("counterJS");
+    const counterMenu = document.getElementById("countJS");
     let score = 0;
+    let scoreMenu = [0];
+
+    buttonReturn.addEventListener("click", () => {
+        MenuSnake.style.display = 'none';
+    });
+
+    function showMenu(){
+        MenuSnake.style.display = 'block';
+        let totalScore = scoreMenu.reduce((sum, current) => sum + current);  
+        counterMenu.innerText = totalScore;
+    }
 
     const grid = 20;
     const snake = {
@@ -16,6 +30,25 @@ document.addEventListener("DOMContentLoaded", () =>{
 
     let count = 0;
 
+     function drawGrid(){
+        ctx.strokeStyle='#90EE90';
+        ctx.lineWidth=1;
+
+        for(var x = 0; x <= canvas.width; x += grid){
+            ctx.beginPath();
+            ctx.moveTo(x, 0);
+            ctx.lineTo(x, canvas.height);
+            ctx.stroke();
+        }
+
+        for(var y = 0; y <= canvas.height; y += grid){
+            ctx.beginPath();
+            ctx.moveTo(0, y);
+            ctx.lineTo(canvas.width, y);
+            ctx.stroke();
+        }
+     }
+
     function loop() {
         requestAnimationFrame(loop);
         
@@ -24,11 +57,14 @@ document.addEventListener("DOMContentLoaded", () =>{
 
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         
+        drawGrid();
+
         snake.x += snake.dx;
         snake.y += snake.dy;
 
         if(snake.x < 0 || snake.x >= canvas.width || snake.y < 0 || snake.y >= canvas.height){
-            alert("Ты проиграл!");
+            showMenu();
+            scoreMenu[0];
             score = 0;
             counter.innerText = score;
             snake.x = 160,
@@ -55,6 +91,7 @@ document.addEventListener("DOMContentLoaded", () =>{
             if(cell.x == apple.x && cell.y == apple.y){
                snake.maxHeight++;
                score += 1;
+               scoreMenu.push(1);
                counter.innerText = score;
                apple.x = Math.floor(Math.random() * 20) * grid;
                apple.y = Math.floor(Math.random() * 20) * grid;
@@ -62,7 +99,7 @@ document.addEventListener("DOMContentLoaded", () =>{
 
             for(let i = index + 1; i < snake.cells.length; i++){
                 if(cell.x == snake.cells[i].x && cell.y == snake.cells[i].y){
-                    alert("Ты проиграл!");
+                    showMenu();
                     score = 0;
                     counter.innerText = score;
                     snake.x = 160,
