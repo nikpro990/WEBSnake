@@ -8,6 +8,7 @@ document.addEventListener("DOMContentLoaded", () =>{
     const counterMenu = document.getElementById("countJS");
     let score = 0;
     let scoreMenu = [0];
+    let PausedSnake = false;
 
     buttonReturn.addEventListener("click", () => {
         MenuSnake.style.display = 'none';
@@ -49,8 +50,11 @@ document.addEventListener("DOMContentLoaded", () =>{
         }
      }
 
+
     function loop() {
         requestAnimationFrame(loop);
+
+
         
         if(++count < 6) return;
         count = 0;
@@ -64,7 +68,7 @@ document.addEventListener("DOMContentLoaded", () =>{
 
         if(snake.x < 0 || snake.x >= canvas.width || snake.y < 0 || snake.y >= canvas.height){
             showMenu();
-            scoreMenu[0];
+            scoreMenu = [0];
             score = 0;
             counter.innerText = score;
             snake.x = 160,
