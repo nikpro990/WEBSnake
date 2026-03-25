@@ -2,19 +2,22 @@ document.addEventListener("DOMContentLoaded", () =>{
     const canvas = document.getElementById("cvs");
     const ctx = canvas.getContext('2d');
 
-    const MenuSnake = document.getElementById("MenuSnakeJS");
-    const buttonReturn = document.getElementById("returnJS");
-    const counter = document.getElementById("counterJS");
-    const counterMenu = document.getElementById("countJS");
+    const MenuSnake = document.getElementById("menusnake_js");
+    const buttonReturn = document.getElementById("return_js");
+    const counter = document.getElementById("counter_js");
+    const counterMenu = document.getElementById("count_js");
     let score = 0;
     let scoreMenu = [0];
+    let snakePaused = false;
 
     buttonReturn.addEventListener("click", () => {
         MenuSnake.style.display = 'none';
+        snakePaused = false;
     });
 
     function showMenu(){
         MenuSnake.style.display = 'block';
+        snakePaused = true;
         let totalScore = scoreMenu.reduce((sum, current) => sum + current);  
         counterMenu.innerText = totalScore;
     }
@@ -49,9 +52,12 @@ document.addEventListener("DOMContentLoaded", () =>{
         }
      }
 
-    function loop() {
+
+     function loop() { 
         requestAnimationFrame(loop);
-        
+
+        if(snakePaused) return;
+
         if(++count < 6) return;
         count = 0;
 
@@ -64,9 +70,11 @@ document.addEventListener("DOMContentLoaded", () =>{
 
         if(snake.x < 0 || snake.x >= canvas.width || snake.y < 0 || snake.y >= canvas.height){
             showMenu();
-            scoreMenu[0];
+            scoreMenu = [0];
             score = 0;
             counter.innerText = score;
+            apple.x = 100,
+            apple.y = 100,
             snake.x = 160,
             snake.y = 160,
             snake.dx = grid,
@@ -102,6 +110,8 @@ document.addEventListener("DOMContentLoaded", () =>{
                     showMenu();
                     score = 0;
                     counter.innerText = score;
+                    apple.x = 100,
+                    apple.y = 100,
                     snake.x = 160,
                     snake.y = 160,
                     snake.dx = grid,
@@ -118,6 +128,8 @@ document.addEventListener("DOMContentLoaded", () =>{
     }
 
     document.addEventListener("keydown", (e) => {
+        if(snakePaused) return;
+
         if(e.key === "ArrowLeft" && snake.dx === 0){
             snake.dx = -grid;
             snake.dy = 0;
