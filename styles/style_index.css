@@ -8,6 +8,43 @@ body{
     background-image: linear-gradient(90deg,green,rgb(18, 192, 18));
 }
 
+.buttons-container{
+    height: 260px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.snake_logo-container{
+  background-image: url("/image/snake_logo.png");
+  background-size: cover;
+  background-position: center;
+  width: 500px;
+  height: 200px;
+  margin: 0 auto;
+}
+
+.apple_count,
+.exit,
+.start{
+  margin-top: 30px;
+  font-family: "Press Start 2P", system-ui;
+  border-radius: 10px;
+  border: 2px solid orange;
+  transition: all 0.3s ease-in-out;
+  height: 50px;
+  background-color: yellow;
+  font-size: 25px;
+}
+
+.apple_count:hover,
+.exit:hover,
+.start:hover{
+  box-shadow: 1px 1px 7px orange;
+  transform: scale(1.1);
+}
+
 .menusnake{
   animation: snakeAnim 0.3s ease-in-out;
   box-shadow: 2px 2px 10px rgb(153, 245, 153);
