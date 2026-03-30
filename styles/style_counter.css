@@ -8,44 +8,28 @@ body{
     background-image: linear-gradient(90deg,green,rgb(18, 192, 18));
 }
 
-.buttons-container{
-    height: 260px;
+.statistics{
+   font-family: "Press Start 2P", system-ui;
+   color: white;
+}
+
+.general_counter-container{
     display: flex;
-    align-items: center;
-    flex-direction: column;
+}
+
+.general_counter{
+    font-family: "Press Start 2P", system-ui;
+    color: white;
+    margin-left: 10px;
+}
+
+.button_exit-container{
+    height: 117px;
+    display: flex;
     justify-content: center;
 }
 
-.snake_logo-container{
-  background-image: url("/image/snake_logo.png");
-  background-size: cover;
-  background-position: center;
-  width: 500px;
-  height: 200px;
-  margin: 0 auto;
-}
-
-.registration-container{
-  height: 70px;
-  display: flex;
-  flex-direction: row-reverse;
-  align-items: center;
-}
-
-.registration{
-  font-family: "Press Start 2P", system-ui;
-  margin-right: 10px;
-  border-radius: 20px;
-  border: 2px solid orange;
-  transition: all 0.3s ease-in-out;
-  height: 50px;
-  background-color: yellow;
-  font-size: 25px;
-}
-
-.apple_count,
-.exit,
-.start{
+.button_exit{
   margin-top: 30px;
   font-family: "Press Start 2P", system-ui;
   border-radius: 10px;
@@ -56,9 +40,7 @@ body{
   font-size: 25px;
 }
 
-.apple_count:hover,
-.exit:hover,
-.start:hover{
+.button_exit:hover{
   box-shadow: 1px 1px 7px orange;
   transform: scale(1.1);
 }
@@ -71,8 +53,8 @@ body{
   position: absolute;
   background-color: #2e2e2e;
   margin: 0 auto;
-  height: 600px;
-  width: 800px;
+  height: 400px;
+  width: 500px;
   z-index: 10;
 }
 
