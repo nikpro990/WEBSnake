@@ -5,8 +5,40 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WEBSnake</title>
+    <link rel="stylesheet" href="/styles/style_form.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <script src="/scripts/script_form.js"></script>
 </head>
 <body>
-    
+    <div class="menusnake" id="menusnake_js">
+        <h1 class="log-in">Создать аккаунт</h1>
+        <hr>
+        <form id="form_js" class="form-example">
+            <div class="form-example-name">
+              <label>Имя</label>
+              <input type="text" name="name" id="name" required placeholder="Имя" />
+            </div>
+            <div class="form-example-password">
+               <label>Пароль</label>
+               <input type="password" name="password" id="password" required placeholder="Пароль"/>
+            </div>
+            <div class="form-example-password">
+                <label>Повторить пароль</label>
+                <input type="password" name="password" id="password_repeat" required placeholder="Пароль"/>
+             </div>
+            <hr style="margin-top: 30px;">
+            <div class="form-example-sumbit-exit">
+              <input type="submit" id="sumbit" value="Создать"/>
+            </div>
+        </form>     
+    </div> 
 </body>
 </html>

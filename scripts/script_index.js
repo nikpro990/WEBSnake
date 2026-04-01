@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const buttonExit = document.getElementById("exit_js");
 
     buttonLogin.addEventListener("click", () => {
-
+        window.location.href = '/form/form.html'
     });
 
     buttonStart.addEventListener("click", () => {

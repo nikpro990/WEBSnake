@@ -43,6 +43,11 @@ body{
   font-size: 25px;
 }
 
+.registration:hover{
+  box-shadow: 1px 1px 7px orange;
+  transform: scale(1.1);
+}
+
 .apple_count,
 .exit,
 .start{
