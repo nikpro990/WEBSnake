@@ -14,9 +14,9 @@ body{
     font-size: 30px; 
 }
 
-#password_repeat,
+#password_repeat_js,
 #name,
-#password{
+#password_js{
     border-radius: 10px;
     border: 2px solid orange;
     height: 33px;
