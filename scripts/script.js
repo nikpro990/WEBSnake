@@ -7,7 +7,6 @@ document.addEventListener("DOMContentLoaded", () =>{
     const counter = document.getElementById("counter_js");
     const counterMenu = document.getElementById("count_js");
     let score = 0;
-    let scoreMenu = [0];
     let snakePaused = false;
 
     buttonReturn.addEventListener("click", () => {
@@ -15,11 +14,11 @@ document.addEventListener("DOMContentLoaded", () =>{
         snakePaused = false;
     });
 
+
     function showMenu(){
         MenuSnake.style.display = 'block';
         snakePaused = true;
-        let totalScore = scoreMenu.reduce((sum, current) => sum + current);  
-        counterMenu.innerText = totalScore;
+        counterMenu.innerText = score;
     }
 
     const grid = 20;
@@ -70,7 +69,6 @@ document.addEventListener("DOMContentLoaded", () =>{
 
         if(snake.x < 0 || snake.x >= canvas.width || snake.y < 0 || snake.y >= canvas.height){
             showMenu();
-            scoreMenu = [0];
             score = 0;
             counter.innerText = score;
             apple.x = 100,
@@ -99,8 +97,11 @@ document.addEventListener("DOMContentLoaded", () =>{
             if(cell.x == apple.x && cell.y == apple.y){
                snake.maxHeight++;
                score += 1;
-               scoreMenu.push(1);
                counter.innerText = score;
+               let rawData = localStorage.getItem("apple_collection");
+               let appleArrays = rawData ? JSON.parse(rawData) : []; 
+               appleArrays.push({ points: 1, time: Date.now() });
+               localStorage.setItem("apple_collection", JSON.stringify(appleArrays));
                apple.x = Math.floor(Math.random() * 20) * grid;
                apple.y = Math.floor(Math.random() * 20) * grid;
             }

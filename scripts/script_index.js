@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     buttonStatistics.addEventListener("click", () => {
-        window.location.href = '/counter_apple/counter_apple.html'
+        window.location.href = '/statistic/statistic.html'
     });
 
     buttonExit.addEventListener("click", () => {
