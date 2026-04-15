@@ -5,11 +5,11 @@ document.addEventListener("DOMContentLoaded", () => {
     const buttonExit = document.getElementById("exit_js");
 
     buttonLogin.addEventListener("click", () => {
-        window.location.href = '/form/form.html'
+        window.location.href = './form/form.html'
     });
 
     buttonStart.addEventListener("click", () => {
-        window.location.href = '/game/game.html';
+        window.location.href = './game/game.html';
         let rawDataStart = localStorage.getItem("start_collection");
         let startArrays = rawDataStart ? JSON.parse(rawDataStart) : []; 
         startArrays.push({ points: 1, time: Date.now() });
@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     buttonStatistics.addEventListener("click", () => {
-        window.location.href = '/statistic/statistic.html'
+        window.location.href = './statistic/statistic.html'
     });
 
     buttonExit.addEventListener("click", () => {

@@ -17,7 +17,7 @@ body{
 }
 
 .snake_logo-container{
-  background-image: url("/image/snake_logo.png");
+  background-image: url("../image/snake_logo.png");
   background-size: cover;
   background-position: center;
   width: 500px;
