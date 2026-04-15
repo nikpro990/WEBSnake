@@ -1,23 +1,25 @@
 document.addEventListener("DOMContentLoaded", () =>{
     const canvas = document.getElementById("cvs");
     const ctx = canvas.getContext('2d');
-
     const MenuSnake = document.getElementById("menusnake_js");
     const buttonReturn = document.getElementById("return_js");
     const counter = document.getElementById("counter_js");
     const counterMenu = document.getElementById("count_js");
     let score = 0;
     let snakePaused = false;
+    let timePaused = false;
+    let counterTime = 0;
 
     buttonReturn.addEventListener("click", () => {
         MenuSnake.style.display = 'none';
+        timePaused = false;
         snakePaused = false;
     });
-
 
     function showMenu(){
         MenuSnake.style.display = 'block';
         snakePaused = true;
+        timePaused = true;
         counterMenu.innerText = score;
     }
 
@@ -51,6 +53,15 @@ document.addEventListener("DOMContentLoaded", () =>{
         }
      }
 
+     setInterval(() => {
+        if(!timePaused){
+            counterTime += 1;
+            let rawDataTime = localStorage.getItem("time_collection");
+            let timeArrays = rawDataTime ? JSON.parse(rawDataTime) : []; 
+            timeArrays.push({ points: 1, time: Date.now() });
+            localStorage.setItem("time_collection", JSON.stringify(timeArrays));
+        }
+    }, 1000);
 
      function loop() { 
         requestAnimationFrame(loop);

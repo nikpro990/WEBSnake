@@ -29,6 +29,12 @@ body{
     justify-content: center;
 }
 
+.seconds{
+  font-family: "Press Start 2P", system-ui;
+  margin-left: 10px;
+  color: white;
+}
+
 .button_exit{
   margin-top: 30px;
   font-family: "Press Start 2P", system-ui;

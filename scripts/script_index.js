@@ -10,6 +10,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
     buttonStart.addEventListener("click", () => {
         window.location.href = '/game/game.html';
+        let rawDataStart = localStorage.getItem("start_collection");
+        let startArrays = rawDataStart ? JSON.parse(rawDataStart) : []; 
+        startArrays.push({ points: 1, time: Date.now() });
+        localStorage.setItem("start_collection", JSON.stringify(startArrays));
     });
 
     buttonStatistics.addEventListener("click", () => {
