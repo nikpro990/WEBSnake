@@ -10,7 +10,12 @@ document.addEventListener("DOMContentLoaded", () => {
      const p1 = InputPassword.value;
      const p2 = InputPasswordRepeat.value;
 
-     buttonSumbit.disabled = (p1 === "" || p2 === "" || p1 !== p2);
+     if (p1 === "" || p2 === "" || p1 !== p2) {
+      buttonSumbit.disabled = true;
+    } else {
+      buttonSumbit.disabled = false;
+    }
+
   }
 
   InputPasswordRepeat.oninput = checkValue;
