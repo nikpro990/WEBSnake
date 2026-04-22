@@ -81,6 +81,63 @@ body{
   z-index: 10;
 }
 
+@media(max-width: 809px){
+  .menusnake{
+    width: 502px;
+    padding: 30px;
+  }
+}
+
+@media(max-width: 571px){
+  .menusnake{
+    width: 401px;
+  }
+  .snake_logo-container{
+    width: 401px;
+  }
+}
+
+@media(max-width: 340px){
+  .exit,
+  .apple_count,
+  .start{
+    font-size: 20px;
+  }
+
+  .menusnake{
+    width: 167px;
+    height: 490px;
+  }
+
+  .registration{
+    margin-right: 0px;
+    font-size: 18px;
+  }
+  
+  .snake_logo-container{
+    width: 167px;
+    height: 123px;
+  }
+
+  .buttons-container{
+    height: 210px;
+  }
+}
+
+@media(max-width: 470px){
+  .menusnake{
+    width: 260px;
+  }
+  .registration{
+    font-size: 22px;
+  }
+  .snake_logo-container{
+    width: 260px;
+    height: 191px;
+  }
+}
+
+
 @keyframes snakeAnim {
   from {
     opacity: 0;

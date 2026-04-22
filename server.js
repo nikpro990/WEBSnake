@@ -19,7 +19,6 @@ const dbConfig = {
 app.use(cors()); 
 app.use(express.json()); 
 
-
 app.post('/api/register', async (req, res) => {
     try {
         const { username, password } = req.body;

@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", () => {
           username : document.getElementById("name").value,
           password : document.getElementById("password_js").value, 
       }
-      const response = await fetch("http://127.0.0.1:5500/form/form.html", {
+      const response = await fetch("http://127.0.0.1:3000/api/register", {
         method: "POST",
         headers: {"Content-Type": "aplication/json"},
         body: JSON.stringify(data)
