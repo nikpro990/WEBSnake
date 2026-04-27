@@ -86,6 +86,20 @@ body{
   z-index: 10;
 }
 
+@media(max-width: 809px){
+  .menusnake{
+    width: 500px;
+  }
+}
+
+@media(max-width: 571px){
+  .menusnake{
+    width: 381px;
+  }
+}
+
+
+
 @keyframes snakeAnim {
   from {
     opacity: 0;

@@ -64,6 +64,41 @@ body{
   z-index: 10;
 }
 
+@media(max-width: 809px){
+  .menusnake{
+    width: 500px;
+  }
+}
+
+@media(max-width: 571px){
+  .menusnake{
+    width: 401px;
+    height: 480px;
+  }
+  .general_counter-container{
+    display: block;
+  }
+}
+
+@media(max-width: 340px){
+  .menusnake{
+    width: 167px;
+    height: 490px;
+  }
+}
+
+@media(max-width: 470px){
+  .menusnake{
+    width: 260px;
+  }
+  .button_exit{
+    margin-top: 6px;
+  }
+  .statistics{
+    font-size: 24px;
+  }
+}
+
 @keyframes snakeAnim {
   from {
     opacity: 0;
