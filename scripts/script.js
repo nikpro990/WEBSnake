@@ -5,6 +5,10 @@ document.addEventListener("DOMContentLoaded", () =>{
     const buttonReturn = document.getElementById("return_js");
     const counter = document.getElementById("counter_js");
     const counterMenu = document.getElementById("count_js");
+    const left = document.getElementById("left_js")
+    const right = document.getElementById("right_js")
+    const up = document.getElementById("up_js")
+    const down = document.getElementById("down_js")
     let score = 0;
     let snakePaused = false;
     let timePaused = false;
@@ -159,6 +163,28 @@ document.addEventListener("DOMContentLoaded", () =>{
             snake.dy = grid;
         }
     });
+
+    left.addEventListener("click", () => {
+        if(snakePaused) return;
+        snake.dx = -grid;
+        snake.dy = 0;
+    });
+    right.addEventListener("click", () => {
+        if(snakePaused) return;
+        snake.dx = grid;
+        snake.dy = 0;
+    });
+    up.addEventListener("click", () => {
+        if(snakePaused) return;
+        snake.dx = 0;
+        snake.dy = -grid;
+    });
+    down.addEventListener("click", () => {
+        if(snakePaused) return;
+        snake.dx = 0;
+        snake.dy = grid;
+    });
+
 
     requestAnimationFrame(loop);
 });
