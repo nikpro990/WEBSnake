@@ -28,7 +28,7 @@ app.post('/api/register', async (req, res) => {
         await pool.request()
             .input('name', sql.NVarChar, username)
             .input('pass', sql.NVarChar, password)
-            .query('INSERT INTO Users (Username, Password) VALUES (@name, @pass)');
+            .query('INSERT INTO Users (Username, Password) VALUES (@name, @pass)');      
 
         res.status(200).send('Пользователь успешно зарегистрирован!');
     } catch (err) {

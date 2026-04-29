@@ -84,7 +84,6 @@ body{
 @media(max-width: 809px){
   .menusnake{
     width: 502px;
-    padding: 30px;
   }
 }
 
@@ -136,6 +135,7 @@ body{
     height: 191px;
   }
 }
+
 
 
 @keyframes snakeAnim {
