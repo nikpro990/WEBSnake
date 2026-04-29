@@ -143,6 +143,7 @@ document.addEventListener("DOMContentLoaded", () =>{
 
     }
 
+
     document.addEventListener("keydown", (e) => {
         if(snakePaused) return;
 

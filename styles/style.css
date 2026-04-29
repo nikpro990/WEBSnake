@@ -187,7 +187,11 @@ body{
   }
 }
 
-
+@media(min-width: 1024px){
+  .control-mobile-container{
+    display: none;
+  }
+}
 
 @keyframes snakeAnim {
   from {
