@@ -3,6 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
   let InputPassword = document.getElementById("password_js");
   let InputPasswordRepeat = document.getElementById("password_repeat_js")
   const buttonSumbit = document.getElementById("sumbit");
+  const PasswordDisabled = document.getElementById("password-disabled_js");
   
   buttonSumbit.disabled = true;
 
@@ -10,13 +11,18 @@ document.addEventListener("DOMContentLoaded", () => {
      const p1 = InputPassword.value;
      const p2 = InputPasswordRepeat.value;
 
-     if (p1 === "" || p2 === "" || p1 !== p2) {
+    if (p1 === "" || p2 === "" || p1 !== p2) {
       buttonSumbit.disabled = true;
+      PasswordDisabled.style.display = "block";
     } else {
       buttonSumbit.disabled = false;
+      PasswordDisabled.style.display = "none";
     }
-
   }
+
+  PasswordDisabled.addEventListener("click", () => {
+      alert("Ошибка: пароли не совпадают");
+  });
 
   InputPasswordRepeat.oninput = checkValue;
   InputPassword.oninput = checkValue;

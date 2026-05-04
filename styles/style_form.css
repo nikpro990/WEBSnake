@@ -58,6 +58,7 @@ input::placeholder{
 }
 
 #sumbit{
+    z-index: 1;
     margin-top: 15px;
     font-family: "Press Start 2P", system-ui;
     border-radius: 10px;
@@ -71,6 +72,13 @@ input::placeholder{
 #sumbit:hover{
   box-shadow: 1px 1px 7px orange;
   transform: scale(1.1);
+}
+
+.password-disabled{
+  position: absolute;
+  z-index: 100;
+  width: 200px;
+  height: 80px;
 }
 
 .menusnake{
