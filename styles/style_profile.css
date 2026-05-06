@@ -109,7 +109,6 @@ input::placeholder{
 @media(max-width: 340px){
   .menusnake{
     width: 167px;
-    height: 490px;
   }
 
 }
@@ -117,6 +116,14 @@ input::placeholder{
 @media(max-width: 470px){
   .menusnake{
     width: 260px;
+  }
+  #name,
+  #password,
+  #password_repeat{
+    width: 234px;
+  }
+  .text-edit-profile{
+    font-size: 18px;
   }
 }
 

@@ -105,7 +105,6 @@ body{
 
   .menusnake{
     width: 167px;
-    height: 490px;
   }
 
   .registration{
@@ -125,7 +124,7 @@ body{
 
 @media(max-width: 470px){
   .menusnake{
-    width: 260px;
+    width: 351px;
   }
   .registration{
     font-size: 22px;

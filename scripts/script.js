@@ -34,6 +34,9 @@ document.addEventListener("DOMContentLoaded", () =>{
         cells: [],
         maxHeight: 2
     };
+    
+    const appleTexture = new Image()
+    appleTexture.src = "../image/apple.png"
     let apple = {x: 100, y: 100};
 
     let count = 0;
@@ -72,7 +75,7 @@ document.addEventListener("DOMContentLoaded", () =>{
 
         if(snakePaused) return;
 
-        if(++count < 6) return;
+        if(++count < 8) return;
         count = 0;
 
         ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -138,6 +141,8 @@ document.addEventListener("DOMContentLoaded", () =>{
             }
         });
 
+        const pattern = ctx.createPattern(appleTexture, "repeat");
+
         ctx.fillStyle='red';
         ctx.fillRect(apple.x, apple.y, grid-1, grid-1);
 
@@ -166,24 +171,32 @@ document.addEventListener("DOMContentLoaded", () =>{
     });
 
     left.addEventListener("click", () => {
-        if(snakePaused) return;
+       if(snakePaused) return;
+       if(snake.dx === 0){
         snake.dx = -grid;
         snake.dy = 0;
+       } 
     });
     right.addEventListener("click", () => {
-        if(snakePaused) return;
+       if(snakePaused) return;
+       if(snake.dx === 0){
         snake.dx = grid;
         snake.dy = 0;
+       } 
     });
     up.addEventListener("click", () => {
         if(snakePaused) return;
-        snake.dx = 0;
-        snake.dy = -grid;
+        if(snake.dy === 0){
+            snake.dx = 0;
+            snake.dy = -grid;
+        }
     });
     down.addEventListener("click", () => {
         if(snakePaused) return;
-        snake.dx = 0;
-        snake.dy = grid;
+        if(snake.dy === 0){
+            snake.dx = 0;
+            snake.dy = grid;
+        }
     });
 
 
