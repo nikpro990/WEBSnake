@@ -4,7 +4,9 @@ document.addEventListener("DOMContentLoaded", () => {
   let InputPasswordRepeat = document.getElementById("password_repeat_js")
   const buttonSumbit = document.getElementById("sumbit");
   const PasswordDisabled = document.getElementById("password-disabled_js");
-  
+  const username = document.getElementById("name");
+  const password = document.getElementById("password_js")
+
   buttonSumbit.disabled = true;
 
   function checkValue(){  
@@ -30,18 +32,20 @@ document.addEventListener("DOMContentLoaded", () => {
   ButtonForm.onsubmit = async (e) => {
       e.preventDefault();
       const data = {
-          username : document.getElementById("name").value,
-          password : document.getElementById("password_js").value, 
+          username : username.value,
+          password : password.value, 
       }
-      const response = await fetch("http://127.0.0.1:3000/api/register", {
+      const response = await fetch("http://127.0.0.1:3000/register", {
         method: "POST",
-        headers: {"Content-Type": "aplication/json"},
+        headers: {"Content-Type": "application/json"},
         body: JSON.stringify(data)
       });
+
+      const result = await response.text();
 
       if(response.ok){
         alert(result)
       }
-      const result = await response.text();
+     
   };
 });

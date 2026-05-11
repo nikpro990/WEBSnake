@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", () =>{
         counterMenu.innerText = score;
     }
 
-    const grid = 20;
+    const grid = 20;    
     const snake = {
         x: 160, y: 160,
         dx: grid, dy: 0,
@@ -141,10 +141,7 @@ document.addEventListener("DOMContentLoaded", () =>{
             }
         });
 
-        const pattern = ctx.createPattern(appleTexture, "repeat");
-
-        ctx.fillStyle='red';
-        ctx.fillRect(apple.x, apple.y, grid-1, grid-1);
+        ctx.drawImage(appleTexture, apple.x, apple.y, grid - 1, grid - 1);
 
     }
 
