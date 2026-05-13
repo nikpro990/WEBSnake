@@ -21,7 +21,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     buttonExit.addEventListener("click", () => {
-        window.close();
     });
 
 });

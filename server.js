@@ -11,7 +11,6 @@ const dbConfig = {
     driver: "msnodesqlv8",
 };
 
-
 app.post('/register', async (req, res) => {
     try {
         const { username, password } = req.body;
@@ -21,16 +20,15 @@ app.post('/register', async (req, res) => {
         const checkUsers = await pool.request()
             .input('username', sql.NVarChar, username)
             .query("SELECT * from dbo.users WHERE username = @username")
-        if(checkUsers.recordset.lenght > 0){
-            return res.status(400).send("Пользователь уже существует с таким именем");
-        }
+            if(checkUsers.recordset.lenght > 0){
+             return res.status(400).send("Пользователь уже существует с таким именем");
+            }
 
         await pool.request()
             .input('username', sql.NVarChar, username)
             .input('password', sql.NVarChar, password)
             .query('INSERT INTO dbo.users (username, password) VALUES (@username, @password)');      
-
-        res.status(200).send('Пользователь успешно зарегистрирован!');
+        res.status(200).send('Пользователь успешно зарегистрирован!')
     } catch (err) {
         console.error('Ошибка БД:', err);
         res.status(500).send('Ошибка на стороне сервера');
