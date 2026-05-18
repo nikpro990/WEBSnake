@@ -3,6 +3,12 @@ document.addEventListener("DOMContentLoaded", () => {
     const buttonStart = document.getElementById("start_js");
     const buttonStatistics = document.getElementById("apple_count_js");
     const buttonExit = document.getElementById("exit_js");
+    const gethaveUser = localStorage.getItem("")
+    const getUser = localStorage.getItem("username");
+
+    if(getUser){
+        buttonLogin.outerHTML = `<span class="getUser">${getUser}</span>`;
+    } 
 
     buttonLogin.addEventListener("click", () => {
         window.location.href = './form/form.html'
@@ -20,7 +26,14 @@ document.addEventListener("DOMContentLoaded", () => {
         window.location.href = './statistic/statistic.html'
     });
 
-    buttonExit.addEventListener("click", () => {
+    buttonExit.addEventListener("click", (e) => {
+        if(getUser){
+            alert("Вы вышли из аккаунта");
+            localStorage.removeItem("username");
+        }
+        else{
+           alert("Создайте аккаунт");
+        }
     });
 
 });

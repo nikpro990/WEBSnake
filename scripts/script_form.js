@@ -41,10 +41,20 @@ document.addEventListener("DOMContentLoaded", () => {
         body: JSON.stringify(data)
       });
 
+      if(username.value.trim() !== ""){
+        const saveUser = localStorage.setItem("username", username.value);
+      
+        //window.location.href = "../index.html"
+      }
+      
+
       const result = await response.text();
 
       if(response.ok){
-        alert(result)
+        alert(result);
+      }
+      else{
+        alert(result);
       }
      
   };

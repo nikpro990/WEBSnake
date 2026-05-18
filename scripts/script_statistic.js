@@ -3,8 +3,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const SummTime = document.getElementById("counter_time_life");
     const SummStart = document.getElementById("counter_start_click");
 
-    
-
     function updateScore(){
         let rawData = localStorage.getItem("apple_collection");
         let apples = JSON.parse(rawData) || [];
