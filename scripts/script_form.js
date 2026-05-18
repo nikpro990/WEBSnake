@@ -6,10 +6,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const PasswordDisabled = document.getElementById("password-disabled_js");
   const username = document.getElementById("name");
 
-  // Блокируем кнопку изначально
   if (buttonSubmit) buttonSubmit.disabled = true;
 
-  // Функция проверки паролей
   function checkValue() {  
     const p1 = InputPassword.value;
     const p2 = InputPasswordRepeat.value;
@@ -23,7 +21,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  // Навешиваем события валидации
   InputPasswordRepeat.oninput = checkValue;
   InputPassword.oninput = checkValue;
 
@@ -31,7 +28,6 @@ document.addEventListener("DOMContentLoaded", () => {
     alert("Ошибка: пароли не совпадают");
   });
 
-  // Отправка формы (лишние DOMContentLoaded удалены)
   if (ButtonForm) {
     ButtonForm.onsubmit = async (e) => {
       e.preventDefault();
@@ -52,7 +48,7 @@ document.addEventListener("DOMContentLoaded", () => {
         alert(result);
 
         if (response.ok) {
-          // Действие при успешной регистрации (например, перенаправление)
+          localStorage.setItem("username", username.value);
           // window.location.href = "../index.html";
         }
       } catch (error) {
