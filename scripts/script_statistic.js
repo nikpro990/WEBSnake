@@ -18,7 +18,29 @@ document.addEventListener("DOMContentLoaded", () => {
         let starts = JSON.parse(rawDataStart) || [];
         const totalStart = starts.reduce((sum, current) => sum + (current.points || 0), 0); 
         SummStart.innerText = totalStart;
-       
+     
+        const getUser = localStorage.getItem("username");
+
+        if(getUser){
+        const statsdata = {
+            username: getUser,
+            apple_collection: total,
+            time_collection: totalTime,
+            start_collection: totalStart
+        };
+
+        fetch('http://127.0.0.1:3000/statistics', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(statsdata)
+        })
+        .then(res => {
+            if (res.ok) {
+                console.log("Статистика успешно обновлена в SQL Server!");
+            }
+        })
+        .catch(err => console.error("Ошибка сети при отправке в SQL Server:", err));
+        }
     }
 
     updateScore();
@@ -45,5 +67,7 @@ document.addEventListener("DOMContentLoaded", () => {
             SummStart.innerText = total;
         }
     });
+
+
 
 });

@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const ButtonForm = document.getElementById("form_js");
   const InputPassword = document.getElementById("password_js");
   const InputPasswordRepeat = document.getElementById("password_repeat_js");
-  const buttonSubmit = document.getElementById("sumbit"); // Проверьте опечатку в HTML (sumbit/submit)
+  const buttonSubmit = document.getElementById("sumbit"); 
   const PasswordDisabled = document.getElementById("password-disabled_js");
   const username = document.getElementById("name");
 
@@ -31,7 +31,6 @@ document.addEventListener("DOMContentLoaded", () => {
   if (ButtonForm) {
     ButtonForm.onsubmit = async (e) => {
       e.preventDefault();
-
       const data = {
         username: username.value,
         password: InputPassword.value
@@ -45,11 +44,14 @@ document.addEventListener("DOMContentLoaded", () => {
         });
 
         const result = await response.text();
-        alert(result);
 
         if (response.ok) {
+          alert(result);
           localStorage.setItem("username", username.value);
           // window.location.href = "../index.html";
+        }
+        else{
+         alert(result);   
         }
       } catch (error) {
         alert("Ошибка сети или сервера");

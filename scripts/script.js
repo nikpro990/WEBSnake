@@ -13,6 +13,7 @@ document.addEventListener("DOMContentLoaded", () =>{
     let snakePaused = false;
     let timePaused = false;
     let counterTime = 0;
+    let directionQueue = []; 
 
     buttonReturn.addEventListener("click", () => {
         MenuSnake.style.display = 'none';
@@ -25,6 +26,7 @@ document.addEventListener("DOMContentLoaded", () =>{
         snakePaused = true;
         timePaused = true;
         counterMenu.innerText = score;
+        directionQueue = []; 
     }
 
     const grid = 20;    
@@ -70,6 +72,7 @@ document.addEventListener("DOMContentLoaded", () =>{
         }
     }, 1000);
 
+
      function loop() { 
         requestAnimationFrame(loop);
 
@@ -77,6 +80,15 @@ document.addEventListener("DOMContentLoaded", () =>{
 
         if(++count < 8) return;
         count = 0;
+
+
+        if (directionQueue.length > 0) {
+            const nextDir = directionQueue.shift();
+            snake.dx = nextDir.dx;
+            snake.dy = nextDir.dy;
+        }
+
+ctx.clearRect(0, 0, canvas.width, canvas.height);
 
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         
@@ -145,6 +157,17 @@ document.addEventListener("DOMContentLoaded", () =>{
 
     }
 
+    function changeDirection(targetDx, targetDy) {
+    const lastDir = directionQueue.length > 0 ? directionQueue[directionQueue.length - 1] : { dx: snake.dx, dy: snake.dy };
+    
+    if (targetDx !== 0 && lastDir.dx !== 0) return; 
+    if (targetDy !== 0 && lastDir.dy !== 0) return; 
+    if (targetDx === lastDir.dx && targetDy === lastDir.dy) return;
+
+    if (directionQueue.length < 2) {
+        directionQueue.push({ dx: targetDx, dy: targetDy });
+    }
+    }
 
     document.addEventListener("keydown", (e) => {
         if(snakePaused) return;

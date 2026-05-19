@@ -48,6 +48,22 @@ body{
   transform: scale(1.1);
 }
 
+.login{
+  font-family: "Press Start 2P", system-ui;
+  margin-right: 10px;
+  border-radius: 20px;
+  border: 2px solid orange;
+  transition: all 0.3s ease-in-out;
+  height: 50px;
+  background-color: yellow;
+  font-size: 25px;
+}
+
+.login:hover{
+  box-shadow: 1px 1px 7px orange;
+  transform: scale(1.1);
+}
+
 .apple_count,
 .exit,
 .start{
