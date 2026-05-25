@@ -34,6 +34,7 @@ document.addEventListener("DOMContentLoaded", () => {
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(statsdata)
         })
+
         .then(res => {
             if (res.ok) {
                 console.log("Статистика успешно обновлена в SQL Server!");
