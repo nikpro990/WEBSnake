@@ -48,7 +48,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (response.ok) {
           alert(result);
           localStorage.setItem("username", username.value);
-          // window.location.href = "../index.html";
+          window.location.href = "../index.html";
         }
         else{
          alert(result);   

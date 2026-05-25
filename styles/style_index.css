@@ -40,7 +40,7 @@ body{
   transition: all 0.3s ease-in-out;
   height: 50px;
   background-color: yellow;
-  font-size: 25px;
+  font-size: 14px;
 }
 
 .registration:hover{
@@ -125,7 +125,6 @@ body{
 
   .registration{
     margin-right: 0px;
-    font-size: 18px;
   }
   
   .snake_logo-container{
@@ -143,7 +142,7 @@ body{
     width: 351px;
   }
   .registration{
-    font-size: 22px;
+    font-size: 11px;
   }
   .snake_logo-container{
     width: 260px;
