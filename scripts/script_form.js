@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const ButtonForm = document.getElementById("form_js");
   const InputPassword = document.getElementById("password_js");
   const InputPasswordRepeat = document.getElementById("password_repeat_js");
-  const buttonSubmit = document.getElementById("sumbit"); 
+  const buttonSubmit = document.getElementById("submit"); 
   const PasswordDisabled = document.getElementById("password-disabled_js");
   const username = document.getElementById("name");
 

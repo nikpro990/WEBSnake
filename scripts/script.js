@@ -65,10 +65,19 @@ document.addEventListener("DOMContentLoaded", () =>{
      setInterval(() => {
         if(!timePaused){
             counterTime += 1;
-            let rawDataTime = localStorage.getItem("time_collection");
-            let timeArrays = rawDataTime ? JSON.parse(rawDataTime) : []; 
-            timeArrays.push({ points: 1, time: Date.now() });
-            localStorage.setItem("time_collection", JSON.stringify(timeArrays));
+            
+            let rawDataTime = localStorage.getItem("score_time");
+            let timeArrays = [];
+            
+            try {
+                timeArrays = rawDataTime ? JSON.parse(rawDataTime) : [];
+                if (!Array.isArray(timeArrays)) timeArrays = [];
+            } catch(e) {
+                timeArrays = [];
+            }
+
+            timeArrays.push({ seconds: 1, time: Date.now() });
+            localStorage.setItem("score_time", JSON.stringify(timeArrays));
         }
     }, 1000);
 
@@ -88,7 +97,7 @@ document.addEventListener("DOMContentLoaded", () =>{
             snake.dy = nextDir.dy;
         }
 
-ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
 
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         
@@ -128,10 +137,18 @@ ctx.clearRect(0, 0, canvas.width, canvas.height);
                snake.maxHeight++;
                score += 1;
                counter.innerText = score;
-               let rawData = localStorage.getItem("apple_collection");
-               let appleArrays = rawData ? JSON.parse(rawData) : []; 
+               let rawDataApples = localStorage.getItem("score_apples");
+               let appleArrays = [];
+               
+               try {
+                   appleArrays = rawDataApples ? JSON.parse(rawDataApples) : [];
+                   if (!Array.isArray(appleArrays)) appleArrays = [];
+               } catch(e) {
+                   appleArrays = [];
+               }
+
                appleArrays.push({ points: 1, time: Date.now() });
-               localStorage.setItem("apple_collection", JSON.stringify(appleArrays));
+               localStorage.setItem("score_apples", JSON.stringify(appleArrays));
                apple.x = Math.floor(Math.random() * 20) * grid;
                apple.y = Math.floor(Math.random() * 20) * grid;
             }

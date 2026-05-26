@@ -8,6 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if(getUser){
         buttonRegistration.outerHTML = `<span class="getUser">${getUser}</span>`;
+        buttonLogin.style.display = "none";
     } 
 
     buttonRegistration.addEventListener("click", () => {
@@ -20,11 +21,20 @@ document.addEventListener("DOMContentLoaded", () => {
 
     buttonStart.addEventListener("click", () => {
         if(getUser){          
-            window.location.href = './game/game.html';
-            let rawDataStart = localStorage.getItem("start_collection");
-            let startArrays = rawDataStart ? JSON.parse(rawDataStart) : []; 
-            startArrays.push({ points: 1, time: Date.now() });
-            localStorage.setItem("start_collection", JSON.stringify(startArrays)); 
+                window.location.href = './game/game.html';
+                let rawDataStart = localStorage.getItem("score_starts");
+                let startArrays = [];
+                
+                try {
+                    startArrays = rawDataStart ? JSON.parse(rawDataStart) : [];
+                    if (!Array.isArray(startArrays)) startArrays = [];
+                } catch(e) {
+                    startArrays = [];
+                }
+
+                startArrays.push({ start: 1, time: Date.now() });
+                
+                localStorage.setItem("score_starts", JSON.stringify(startArrays));
         }
         else{
           alert("Чтобы играть, нужно создать аккаунт")  

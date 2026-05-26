@@ -39,13 +39,21 @@ document.addEventListener("DOMContentLoaded", () => {
               body: JSON.stringify(data)
             });
     
-            const result = await response.text();
+            const result = await response.json();  
+            const contentType = response.headers.get("content-type");
     
-            if (response.ok) {
-              alert(result);
-              
+            if (response.ok && contentType && contentType.includes("application/json")) {
+      
+              alert(result.message); 
+      
+              localStorage.setItem("username", result.user.username);
+              localStorage.setItem("score_apples", result.statistics.AppleCollection);
+              localStorage.setItem("score_time", result.statistics.TimeCollection);
+              localStorage.setItem("score_starts", result.statistics.StartCollection);
+
               // window.location.href = "../index.html";
             }
+
             else{
              alert(result);   
             }
