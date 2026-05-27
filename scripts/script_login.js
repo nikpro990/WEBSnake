@@ -45,13 +45,12 @@ document.addEventListener("DOMContentLoaded", () => {
             if (response.ok && contentType && contentType.includes("application/json")) {
       
               alert(result.message); 
-      
               localStorage.setItem("username", result.user.username);
-              localStorage.setItem("score_apples", result.statistics.AppleCollection);
-              localStorage.setItem("score_time", result.statistics.TimeCollection);
-              localStorage.setItem("score_starts", result.statistics.StartCollection);
+              localStorage.setItem("score_apples", JSON.stringify(result.statistics.AppleCollection));
+              localStorage.setItem("score_time", JSON.stringify(result.statistics.TimeCollection));
+              localStorage.setItem("score_starts", JSON.stringify(result.statistics.StartCollection));
 
-              // window.location.href = "../index.html";
+              window.location.href = "../index.html";
             }
 
             else{

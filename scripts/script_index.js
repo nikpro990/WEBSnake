@@ -49,6 +49,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if(getUser){
             alert("Вы вышли из аккаунта");
             localStorage.clear();
+            window.location.reload();
         }
         else{
            alert("Создайте аккаунт");

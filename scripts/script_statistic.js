@@ -9,15 +9,38 @@ document.addEventListener("DOMContentLoaded", () => {
         let startsArray = [];
 
         try {
-            applesArray = JSON.parse(localStorage.getItem("score_apples") || "[]");
-            timeArray = JSON.parse(localStorage.getItem("score_time") || "[]");
-            startsArray = JSON.parse(localStorage.getItem("score_starts") || "[]");
+            let rawApples = localStorage.getItem("score_apples");
+            let rawTime = localStorage.getItem("score_time");
+            let rawStarts = localStorage.getItem("score_starts");
+
+            if (rawApples === "[object Object]") { localStorage.removeItem("score_apples"); rawApples = null; }
+            if (rawTime === "[object Object]") { localStorage.removeItem("score_time"); rawTime = null; }
+            if (rawStarts === "[object Object]") { localStorage.removeItem("score_starts"); rawStarts = null; }
+
+            if (rawApples) {
+              applesArray = JSON.parse(rawApples);
+            } else {
+              applesArray = [];
+            }
+            if(rawTime){
+               timeArray = JSON.parse(rawTime);
+            } else{
+                timeArray = [];
+            }
+            if(rawStarts) {
+               startsArray = JSON.parse(rawStarts);
+            } else {
+                startsArray = [];
+            }
             
             if (!Array.isArray(applesArray)) applesArray = [];
             if (!Array.isArray(timeArray)) timeArray = [];
             if (!Array.isArray(startsArray)) startsArray = [];
         } catch (e) {
             console.error("Ошибка чтения данных из localStorage", e);
+            applesArray = [];
+            timeArray = [];
+            startsArray = [];
         }
 
         const totalApples = applesArray.length;
