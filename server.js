@@ -1,5 +1,5 @@
 const express = require('express');
-const sql = require('mssql');  //msnodesqlv8 
+const sql = require('mssql/msnodesqlv8');  
 const cors = require('cors');
 
 const app = express();
@@ -7,17 +7,17 @@ app.use(express.json());
 app.use(cors()); 
 
 const dbConfig = {
-      // connectionString:"Driver={ODBC Driver 17 for SQL Server};Server=A102PCPREPOD\\A102PCPREPOD;Database=users_snake;Trusted_Connection=Yes;",
-    // driver: "msnodesqlv8",
-    user: 'sa', 
-    password: 'Nikpro12345', 
-    server: 'localhost',
-    port: 1433,
-    database: 'snake_data', 
-    options: {
-         encrypt: false, 
-         trustServerCertificate: true 
-    }
+    connectionString:"Driver={ODBC Driver 17 for SQL Server};Server=(localdb)\\mssqllocaldb;Database=snake_data;Trusted_Connection=Yes;",
+    driver: "msnodesqlv8",
+    // user: 'sa', 
+    // password: 'Nikpro12345', 
+    // server: 'localhost',
+    // port: 1433,
+    // database: 'snake_data', 
+    // options: {
+    //      encrypt: false, 
+    //      trustServerCertificate: true 
+    // }
 };
 
 app.post('/register', async (req, res) => {
