@@ -20,24 +20,30 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     buttonStart.addEventListener("click", () => {
-        if(getUser){          
-                window.location.href = './game/game.html';
+        if(getUser){     
                 let rawDataStart = localStorage.getItem("score_starts");
-                let startArrays = [];
-                
-                try {
-                    startArrays = rawDataStart ? JSON.parse(rawDataStart) : [];
-                    if (!Array.isArray(startArrays)) startArrays = [];
-                } catch(e) {
+                let startArrays;
+
+                if (rawDataStart) {
+                    startArrays = JSON.parse(rawDataStart);
+                } else {
                     startArrays = [];
                 }
+
+                if (!Array.isArray(startArrays)) {
+                    startArrays = [];
+                }    
+
 
                 startArrays.push({ start: 1, time: Date.now() });
                 
                 localStorage.setItem("score_starts", JSON.stringify(startArrays));
+
+                    
+                window.location.href = './game/game.html';
         }
         else{
-          alert("Чтобы играть, нужно создать аккаунт")  
+          alert("Чтобы играть, нужно создать аккаунт или войти")  
         }
     });
 
