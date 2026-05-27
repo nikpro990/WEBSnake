@@ -39,11 +39,11 @@ document.addEventListener("DOMContentLoaded", () => {
               body: JSON.stringify(data)
             });
     
-            const result = await response.json();  
+             
             const contentType = response.headers.get("content-type");
     
             if (response.ok && contentType && contentType.includes("application/json")) {
-      
+              const result = await response.json(); 
               alert(result.message); 
               localStorage.setItem("username", result.user.username);
               localStorage.setItem("score_apples", JSON.stringify(result.statistics.AppleCollection));
@@ -54,9 +54,11 @@ document.addEventListener("DOMContentLoaded", () => {
             }
 
             else{
-             alert(result);   
+             const errorText = await response.text();
+             alert(errorText);   
             }
           } catch (error) {
+            
             alert("Ошибка сети или сервера");
             console.error(error);
           }
