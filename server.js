@@ -7,7 +7,7 @@ app.use(express.json());
 app.use(cors()); 
 
 const dbConfig = {
-    connectionString:"Driver={ODBC Driver 17 for SQL Server};Server=(localdb)\\mssqllocaldb;Database=snake_data;Trusted_Connection=Yes;",
+    connectionString:"Driver={ODBC Driver 17 for SQL Server};Server=mssql,1433;Database=snake_data;UID=sa;PWD=Snake_Pass123!;TrustServerCertificate=yes;",
     driver: "msnodesqlv8",
     // user: 'sa', 
     // password: 'Nikpro12345', 
